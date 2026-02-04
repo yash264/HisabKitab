@@ -1,15 +1,15 @@
-import React from 'react';
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from "./pages/register";
+import Dashboard from "./pages/dashBoard";
 
-function App() {
+export default function App() {
   return (
-    <>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
 
-export default App;
