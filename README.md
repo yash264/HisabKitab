@@ -1,88 +1,51 @@
-# SplitMint 💸  
-### Your Gateway to Karbon
+# 💰 Hisab Kitab
 
-SplitMint is a **full-stack MERN application** for managing **group expenses** and calculating **who owes whom** with **minimal settlements**.  
-It supports **Google OAuth login**, smart expense splitting, and a deterministic balance engine.
+**Hisab Kitab** is a smart group expense management system that simplifies shared spending and settlements.  
+It helps users track group expenses, calculate individual shares, and clearly determine who owes whom — all in one place.
 
----
-
-## 🚀 Features
-
-### 🔐 Authentication
-- Google Sign-In (OAuth 2.0)
-- Secure JWT-based session management
-- Automatic signup for new users
-
-### 👥 Groups
-- Create and delete groups
-- One primary user (owner) per group
-- Up to 3 participants + owner
-- Cascade deletion of participants and expenses
-
-### 🧑 Participants
-- Add participants to a group
-- Optional color/avatar support
-- Remove participants with safe handling
-
-### 💸 Expenses
-- Add expenses with:
-  - Amount
-  - Description
-  - Date
-  - Payer
-  - Participants
-- Supported split modes:
-  - Equal split
-  - Custom amount split
-  - Percentage split
-- Consistent rounding for uneven splits
-- Edit and delete expenses
-
-### ⚖️ Balance Engine
-- Calculates net balance per participant
-- Determines who owes whom
-- Generates **minimal settlement transactions**
-- Splitwise-style greedy settlement algorithm
-
-### 📊 Visualizations
-- Group-level total spending
-- Balance summary
-- Settlement breakdown
-- Transaction history per group
-
-### 🔍 Search & Filters
-- Search expenses by description
-- Filter by date range and amount
-- Participant-based filtering
-
-### 🤖 AI (Optional – MintSense)
-- Natural language expense entry
-- Auto-categorization of expenses
-- Smart group summaries
-- Intelligent settlement suggestions
+With accurate balance calculations, flexible split options, and minimal settlement suggestions, Hisab Kitab removes confusion from group finances.
 
 ---
 
-## 🛠️ Tech Stack
+## Demo Video & Live Hosting
 
-### Frontend
-- React (Vite)
-- React Router
-- Axios
-- Context API
+- **🎥 Video Demo:** https://drive.google.com/file/d/16okQC_g3nQiC2LHAMpcC4VAmVlm8ImWl/view?usp=sharing  
+- **🌐 Live App:** https://hisabkisab-meta.vercel.app/
 
-### Backend
-- Node.js (ES6 modules)
-- Express.js
-- MongoDB + Mongoose
-- JWT Authentication
-- Google Identity Services
+---
+
+## ✨ Key Features
+
+### 👥 Group Management
+- Create and manage multiple groups (trips, roommates, events, etc.)
+- View group-level spending summaries and balances
+
+---
+
+### ➕ Expense Tracking
+- Store details such as amount, description, payer, and participants
+- Automatic recalculation of balances on every change
+
+---
+
+### 🔄 Multiple Split Modes
+- Equal split
+- Custom amount split 
+- Consistent rounding to avoid calculation mismatches
+
+---
+
+### ⚖️ Balance & Settlement Engine
+- Calculates net balance for each participant
+- Identifies who owes money and who should receive it
+- Generates minimal settlement paths to reduce the number of transactions
+
 
 ---
 ### Project Architecture
 ```
 ┌──────────────┐
-│   Frontend   │  (React + Vite)
+│   Frontend   │  (React + Tailwind CSS)
 │──────────────│
 │ Google Login │
 │ UI / State   │
@@ -109,5 +72,31 @@ It supports **Google OAuth login**, smart expense splitting, and a deterministic
 │ Participants │
 └──────────────┘
 ```
+---
 
+### 🔐 Secure Authentication
+- Google OAuth-based login and signup
+- No password storage
+- JWT-based secure API access
 
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, Tailwind CSS  
+- **Backend:** Node.js, Express.js (ES6 Modules)  
+- **Database:** MongoDB  
+- **Authentication:** Google OAuth + JWT  
+- **Architecture:** MERN Stack  
+
+---
+
+## 🎯 Highlights
+
+- Real-world expense-splitting logic
+- Deterministic balance calculations
+- Minimal settlement algorithm
+- Clean and scalable backend architecture
+- Interview-ready project design
+
+---
