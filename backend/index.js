@@ -21,17 +21,20 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const corsOptions = {
-  origin: 'https://hisabkisab-meta.vercel.app',
-  methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+  origin: "https://hisabkisab-meta.vercel.app", // your frontend
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   credentials: true,
 };
-
+app.use(cors(corsOptions));
 
 app.use(express.json());
-app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+app.get("/", (req, res) => {
+  res.send("HisabKitab server is running!");
+});
 
 
 app.use("/api/auth", authRoutes);
