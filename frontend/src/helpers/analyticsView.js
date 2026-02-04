@@ -5,7 +5,7 @@ import api from "../externalAPI/api";
 
 const { Title, Text } = Typography;
 
-const AnalyticsView = ({ group }) => {
+const AnalyticsView = ({ group, refreshKey }) => {
   const [stats, setStats] = useState(null);
   const [expenses, setExpenses] = useState([]);
 
@@ -17,7 +17,7 @@ const AnalyticsView = ({ group }) => {
 
     //  Fetch expenses to calculate member contributions
     api.get(`/expenses/${group._id}`).then((res) => setExpenses(res.data));
-  }, [group]);
+  }, [group, refreshKey]);
 
   if (!stats) return null;
 
@@ -34,7 +34,7 @@ const AnalyticsView = ({ group }) => {
 
   return (
     <>
-      {/* 🔹 TOP SUMMARY */}
+      {/* TOP SUMMARY */}
       <Row gutter={16} style={{ marginBottom: 24 }}>
         <Col span={6}>
           <Card bordered={false} style={{ borderRadius: 8, boxShadow: "0 2px 8px rgb(0 0 0 / 0.1)" }}>

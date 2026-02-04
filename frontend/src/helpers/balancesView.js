@@ -27,13 +27,13 @@ const COLORS = [
   "#eb2f96"
 ];
 
-const BalanceView = ({ group }) => {
+const BalanceView = ({ group, refreshKey }) => {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
     if (!group) return;
     api.get(`/analytics/${group._id}`).then((res) => setStats(res.data));
-  }, [group]);
+  }, [group, refreshKey]);
 
   if (!stats) return null;
 
@@ -65,9 +65,6 @@ const BalanceView = ({ group }) => {
 
   const formatMoney = (v) => `₹${v.toFixed(2)}`;
 
-  const topCreditor = balances.find((b) => b.amount === getsTotal);
-  const topDebtor = balances.find((b) => b.amount === -owesTotal);
-
   const pieData = balances.map((b) => ({
     name: b.name,
     value: Math.abs(b.amount)
@@ -78,12 +75,9 @@ const BalanceView = ({ group }) => {
   const debtorCount = balances.filter((b) => b.amount < 0).length;
   const settledCount = balances.filter((b) => b.amount === 0).length;
 
-  /* ---------------- UI ---------------- */
 
   return (
     <>
-
-      {/* ===== Chart + Summary Section ===== */}
       <Row gutter={24}>
         {/* Pie Chart - Overall Settlement */}
         <Col span={12}>
